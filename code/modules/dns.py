@@ -1,1 +1,1 @@
-Hello word!!
+import dns
