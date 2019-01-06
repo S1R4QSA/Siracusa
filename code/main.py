@@ -1,5 +1,6 @@
 import argparse
-
+from colorama import Back, Fore, init
+init()
 parser = argparse.ArgumentParser(description='Parse the arguments.')
 
 parser.add_argument('-dn','--domain_name',help='Define domain name')
@@ -32,13 +33,24 @@ parser.add_argument('-x','--xss',help='Enable xss module')
 
 parser.add_argument('-s','--sqli',help='Enable sqli module')
 
+args = parser.parse_args()
+
+if __name__ == "__main__":
+    domain_name = args.domain_name
+    if (domain_name is None or domain_name == "" ):
+        print(Fore.RED + "[-] Domain name is empty")
+        raise argparse.ArgumentTypeError('Value cant be empty')
+    else:
+        print(Fore.GREEN + "[+] Domain name defined: "+domain_name)
+
+        
 
 
 
-//ArgumentParser
+#ArgumentParser
 
-//ExecuteOptions
+#ExecuteOptions
 
-//GetInfo
+#GetInfo
 
-//ShowInfo
+#ShowInfo
