@@ -75,8 +75,8 @@ class Main:
         else:
             self.sqli=0
 
-    def proof(self):
-            if(self.sqli is not None):
-                print("hola")
+    def module_launcher(self):
+        pass
+
 a = Main()
 a.proof()
