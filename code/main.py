@@ -1,7 +1,7 @@
 import argparse
 from colorama import Back, Fore, init
 init()
-parser = argparse.ArgumentParser(description='Parse the arguments.')
+parser = argparse.ArgumentParser(description='Parse the arguments')
 
 parser.add_argument('-dn','--domain_name',help='Define domain name')
 
@@ -41,9 +41,41 @@ if __name__ == "__main__":
         print(Fore.RED + "[-] Domain name is empty")
         raise argparse.ArgumentTypeError('Value cant be empty')
     else:
-        print(Fore.GREEN + "[+] Domain name defined: "+domain_name)
+        print(Fore.GREEN +"[+] Domain name defined: "+domain_name)
 
-        
+print(str(args.domain_name))
+
+if(args.dns_module is not None):
+    pass
+if(args.crawler is not None):
+    pass
+if(args.banners is not None):
+    pass
+if(args.geolocate is not None):
+    pass
+if(args.haveibeenpwned is not None):
+    pass
+if(args.nmap is not None):
+    pass
+if(args.ping is not None):
+    pass
+if(args.theharvester is not None):
+    pass
+if(args.cert_and_cipher is not None):
+    pass
+if(args.whois is not None):
+    pass
+if(args.cve_detail is not None):
+    pass
+if(args.cmsmap is not None):
+    pass
+if(args.xss is not None):
+    pass
+if(args.sqli is not None):
+    pass
+
+
+
 
 
 
