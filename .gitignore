@@ -1,1 +1,4 @@
 .vscode/**
+code/modules/__pycache__/module.cpython-37.pyc
+*.pyc
+*.pyc

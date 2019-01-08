@@ -81,26 +81,24 @@ class Main:
         else:
             self.cve_detail=0
         if(args.cmsmap is not None):
-            self.cmsmap=args.cmsmap
-            self.active_modules.append("cmsmap")
-        else:
-            self.cmsmap=0
+            #self.active_modules.append(Cmsmap(args.cmsmap))
+
         if(args.xss is not None):
-            self.xss=args.xss
-            self.active_modules.append("xss")
-        else:
-            self.xss=0
+            #self.active_modules.append(Xss(args.xss))
+            pass
         if(args.sqli is not None):
-            self.sqli=args.sqli
-            self.active_modules.append("sqli")
-        else:
-            self.sqli=0
+            #self.active_modules.append(Sqli(args.sqli))
+            pass
+        #Use this example to build more modules.
         if(args.proof is not None): # Devs proof
-            self.proof=args.proof
-            self.active_modules.append(Proof("123"))
-        else:
-            self.proof=0
+            self.active_modules.append(Proof(args.proof))
+
+    def run_all_modules(self):
+        for i in self.active_modules:
+            i.run_module()
+
 
 
 
 a = Main()
+a.run_all_modules()
