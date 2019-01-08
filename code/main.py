@@ -1,5 +1,7 @@
 import argparse
-from modules import *
+import colorama
+
+from modules.proof import  Proof
 class Main:
     def __init__(self):
         parser = argparse.ArgumentParser(description='Parse the arguments')
@@ -18,8 +20,11 @@ class Main:
         parser.add_argument('-cms','--cmsmap',help='Enable cmsmap module')
         parser.add_argument('-x','--xss',help='Enable xss module')
         parser.add_argument('-s','--sqli',help='Enable sqli module')
+        parser.add_argument('-proof','--proof',help='Just for devs')
         args = parser.parse_args()
-        self.active_modules=[]
+        self.active_modules = []
+
+        #self.active_modules.append()
         if(args.dns_module is not None):
             self.dns_module=args.dns_module
             self.active_modules.append("domain_name")
@@ -90,8 +95,12 @@ class Main:
             self.active_modules.append("sqli")
         else:
             self.sqli=0
+        if(args.proof is not None): # Devs proof
+            self.proof=args.proof
+            self.active_modules.append(Proof("123"))
+        else:
+            self.proof=0
 
 
 
 a = Main()
-b = globals()["Main"]()

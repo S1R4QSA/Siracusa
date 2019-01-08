@@ -13,10 +13,3 @@ class Module(ABC):
     #    pass
 
 # PoC for developers
-class Proof(Module):
-    def run_module(self):
-        print(str(self.params))
-
-prueba = Proof("123")
-prueba.run_module()
-#print(str(globals()))
