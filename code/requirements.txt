@@ -1,3 +1,4 @@
 abc
 argparse
 colorama
+dnspython
