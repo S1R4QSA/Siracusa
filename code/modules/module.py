@@ -6,10 +6,16 @@ class Module(ABC):
     properties:
 
     params : contain module params as a dict.
+
     """
     def __init__(self, params):
-        self.params=params
+
+        self.params={}
+        for param in params:
+            key,value = param.split("=")
+            self.params[key]=value
         super().__init__()
+
     @abstractmethod
     def run_module(self):
         pass

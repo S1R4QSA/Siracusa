@@ -1,7 +1,9 @@
 import argparse
 import colorama
 
-from modules.proof import  Proof
+from modules import  Proof
+#from tools.argstoredict import StoreDictKeyPair
+
 class Main:
     """
      properties:
@@ -10,22 +12,28 @@ class Main:
 
     def __init__(self):
         parser = argparse.ArgumentParser(description='Parse the arguments')
-        parser.add_argument('-d','--domain_name',help='Define domain name')
-        parser.add_argument('-dn','--dns',help='Enable DNS mopule')
-        parser.add_argument('-cr','--crawler',help='Enable  crawler module')
-        parser.add_argument('-bn','--banners',help='Enable  banner grabbing module')
-        parser.add_argument('-geo','--geolocate',help='Enable  geolocation module')
-        parser.add_argument('-hip','--haveibeenpwned',help='Enable  haveibeenpwned querys module')
-        parser.add_argument('-nm','--nmap',help='Enable  nmap module')
-        parser.add_argument('-p','--ping',help='Enable  ping module')
-        parser.add_argument('-th','--theharvester',help='Enable the harvester module')
-        parser.add_argument('-cc','--cert_and_cipher',help='Enable certified and cipher module')
-        parser.add_argument('-wi','--whois',help='Enable whois module')
-        parser.add_argument('-cve','--cve_detail',help='Enable CVE module')
-        parser.add_argument('-cms','--cmsmap',help='Enable cmsmap module')
-        parser.add_argument('-x','--xss',help='Enable xss module')
-        parser.add_argument('-s','--sqli',help='Enable sqli module')
-        parser.add_argument('-proof','--proof',help='Just for devs')
+        parser.add_argument('-d','--domain_name',help='Define domain name', nargs='+')
+        parser.add_argument('-dn','--dns',help='Enable DNS mopule', nargs='+')
+        parser.add_argument('-cr','--crawler',help='Enable  crawler module', nargs='+')
+        parser.add_argument('-bn','--banners',help='Enable  banner grabbing module', nargs='+')
+        parser.add_argument('-geo','--geolocate',help='Enable  geolocation module', nargs='+')
+        parser.add_argument('-hip','--haveibeenpwned',help='Enable  haveibeenpwned querys module', nargs='+')
+        parser.add_argument('-nm','--nmap',help='Enable  nmap module', nargs='+')
+        parser.add_argument('-p','--ping',help='Enable  ping module', nargs='+')
+        parser.add_argument('-th','--theharvester',help='Enable the harvester module', nargs='+')
+        parser.add_argument('-cc','--cert_and_cipher',help='Enable certified and cipher module', nargs='+')
+        parser.add_argument('-wi','--whois',help='Enable whois module', nargs='+')
+        parser.add_argument('-cve','--cve_detail',help='Enable CVE module', nargs='+')
+        parser.add_argument('-cms','--cmsmap',help='Enable cmsmap module', nargs='+')
+        parser.add_argument('-x','--xss',help='Enable xss module', nargs='+')
+        parser.add_argument('-s','--sqli',help='Enable sqli module', nargs='+')
+        #parser.add_argument('-prof','--prof',help='Just for devs', action=StoreDictKeyPair, nargs="+", metavar="KEY=VAL", dest="my_dict")
+        parser.add_argument('-pp','--pref',help='Just for devs', nargs='+')
+        #parser.add_argument('-prof','--prof',help='Just for devs')
+
+
+
+
         args = parser.parse_args()
         self.active_modules = [] #not need.
         if(args.dns is not None):
@@ -76,8 +84,14 @@ class Main:
             #self.active_modules.append(Sqli(args.sqli))
             pass
         #Use this example to build more modules.
-        if(args.proof is not None): # Devs proof
-            self.active_modules.append(Proof(args.proof))
+
+        if( args.pref is not None): # Devs proof
+            #self.active_modules.append(Proof("args.proof"))
+            self.active_modules.append(Proof(args.pref))
+
+            #print(keyvalues)
+        else:
+            print("adios")
 
 
     def run_all_modules(self):
