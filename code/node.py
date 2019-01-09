@@ -1,8 +1,6 @@
-from funtionsUtils import checkIP
-
 class Node:
     # {'ip':['192.168.1.108','10.16.48.1'], 'dn':['example.com', 'example2.com']}
-    data_node: dict = {'ip':['192.168.1.108','10.16.48.1'], 'dn':['example.com', 'example2.com']}
+    data_node: dict = {}
     # children: [Node]
     # parent: Node
 
