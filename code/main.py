@@ -1,7 +1,7 @@
 import argparse
 import colorama
 
-from modules import  Proof
+from modules import  Proof, Nmap_module
 #from tools.argstoredict import StoreDictKeyPair
 
 class Main:
@@ -54,7 +54,7 @@ class Main:
             #self.active_modules.append(Haveibeenpwned(args.haveibeenpwned))
             pass
         if(args.nmap is not None):
-            #self.active_modules.append(Nmap(args.nmap))
+            self.active_modules.append(Nmap_module(args.nmap))
             pass
 
         if(args.ping is not None):
