@@ -3,3 +3,4 @@ argparse
 colorama
 dnspython
 python-whois
+python-nmap
