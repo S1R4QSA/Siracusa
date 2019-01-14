@@ -1,7 +1,7 @@
 import argparse
 import colorama
 
-from modules import  Proof, Nmap_module
+from modules import  Proof, Nmap_module, Dns_module
 #from tools.argstoredict import StoreDictKeyPair
 
 class Main:
@@ -37,7 +37,7 @@ class Main:
         args = parser.parse_args()
         self.active_modules = [] #not need.
         if(args.dns is not None):
-            #self.active_modules.append(Dns(args.dns))
+            self.active_modules.append(Dns_module(args.dns))
             pass
         if(args.crawler is not None):
             #self.active_modules.append(Crawler(args.crawler))
