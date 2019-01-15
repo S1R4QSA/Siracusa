@@ -1,4 +1,5 @@
 import nmap
+from node import Node
 from modules.module import Module
 class Nmap_module (Module):
     """
@@ -9,6 +10,9 @@ class Nmap_module (Module):
     def __init__(self, params):
         super().__init__(params)
         self.namp_handler = nmap.PortScanner()
-        
+
     def run_module(self):
-        print(str(self.params))
+        self.nmap_handler.scan(self.params['hosts'])
+
+    def return_nodes(self):
+        pass

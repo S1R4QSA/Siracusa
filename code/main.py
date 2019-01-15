@@ -2,6 +2,7 @@ import argparse
 import colorama
 
 from modules import  Proof, Nmap_module, Dns_module
+from node import Node
 #from tools.argstoredict import StoreDictKeyPair
 
 class Main:
@@ -35,6 +36,7 @@ class Main:
 
 
         args = parser.parse_args()
+        self.node_list = []
         self.active_modules = [] #not need.
         if(args.dns is not None):
             self.active_modules.append(Dns_module(args.dns))

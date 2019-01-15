@@ -1,3 +1,4 @@
+
 class Node:
     # {'ip':['192.168.1.108','10.16.48.1'], 'dn':['example.com', 'example2.com']}
     data_node: dict = {}
@@ -7,9 +8,9 @@ class Node:
     def __init__(self):
         pass
 
-    def get(self, getters: [str]) -> dict: 
+    def get(self, getters: [str]) -> dict:
         return {k: v for k, v in self.data_node.items() if k in getters}
-        
+
     def set(self, setters: dict) -> bool:
         for key, value in setters.items():
             if key in self.data_node:

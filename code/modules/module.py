@@ -1,4 +1,5 @@
 import abc
+from node import Node
 from abc import ABC, abstractmethod
 # abstract class
 class Module(ABC):
@@ -22,5 +23,8 @@ class Module(ABC):
     #@abstractmethod
     #def getresults(self):
     #    pass
-
+    
+    @abstractmethod
+    def return_nodes(self):
+        pass
 # PoC for developers
